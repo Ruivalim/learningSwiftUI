@@ -12,6 +12,8 @@
 		4DE494D9280C8F7200BDC6F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE494D8280C8F7200BDC6F4 /* Preview Assets.xcassets */; };
 		4DE494E4280C904900BDC6F4 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE494E3280C904900BDC6F4 /* MainPage.swift */; };
 		4DE494E6280C909800BDC6F4 /* Animation01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE494E5280C909800BDC6F4 /* Animation01.swift */; };
+		4DE494EA280CD33700BDC6F4 /* Users.model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE494E9280CD33700BDC6F4 /* Users.model.swift */; };
+		4DE494EC280CD35500BDC6F4 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE494EB280CD35500BDC6F4 /* Users.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		4DE494D8280C8F7200BDC6F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4DE494E3280C904900BDC6F4 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		4DE494E5280C909800BDC6F4 /* Animation01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation01.swift; sourceTree = "<group>"; };
+		4DE494E9280CD33700BDC6F4 /* Users.model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.model.swift; sourceTree = "<group>"; };
+		4DE494EB280CD35500BDC6F4 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +57,11 @@
 		4DE494D0280C8F7100BDC6F4 /* learningSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				4DE494E5280C909800BDC6F4 /* Animation01.swift */,
-				4DE494E3280C904900BDC6F4 /* MainPage.swift */,
 				4DE494D1280C8F7100BDC6F4 /* learningSwiftUIApp.swift */,
+				4DE494E3280C904900BDC6F4 /* MainPage.swift */,
+				4DE494E5280C909800BDC6F4 /* Animation01.swift */,
+				4DE494EB280CD35500BDC6F4 /* Users.swift */,
+				4DE494E9280CD33700BDC6F4 /* Users.model.swift */,
 				4DE494D5280C8F7200BDC6F4 /* Assets.xcassets */,
 				4DE494D7280C8F7200BDC6F4 /* Preview Content */,
 			);
@@ -141,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE494D2280C8F7100BDC6F4 /* learningSwiftUIApp.swift in Sources */,
+				4DE494EA280CD33700BDC6F4 /* Users.model.swift in Sources */,
+				4DE494EC280CD35500BDC6F4 /* Users.swift in Sources */,
 				4DE494E6280C909800BDC6F4 /* Animation01.swift in Sources */,
 				4DE494E4280C904900BDC6F4 /* MainPage.swift in Sources */,
 			);

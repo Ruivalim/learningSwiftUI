@@ -14,6 +14,9 @@ struct MainPage: View {
                 NavigationLink(destination: Animation01()) {
                     Text("Animation 01")
                 }
+                NavigationLink(destination: Users()) {
+                    Text("Fetch Data from URL")
+                }
             }
             .navigationTitle("Learning SwiftUI")
         }

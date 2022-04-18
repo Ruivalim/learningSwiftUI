@@ -16,7 +16,6 @@ struct Animation01: View {
             VStack{
                 Rectangle()
                     .foregroundColor(.orange)
-                    .ignoresSafeArea(.all)
                     .frame(width: 1000, height: 400)
                     .rotationEffect(.degrees( open ? 30 : 0 ))
                     .offset(y: open ? -500 : 0)
