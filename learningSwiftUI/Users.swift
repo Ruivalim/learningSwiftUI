@@ -10,6 +10,12 @@ import SwiftUI
 struct Users: View {
     @State var userList = [User]()
     @State var loading = true;
+    //@State private var selection: User?
+    
+    func removeUserFromList(id: Int) {
+        var userIndex: Int { userList.firstIndex(where: { $0.id == id })!}
+        userList.remove(at: userIndex)
+    }
     
     var body: some View {
         ZStack{
@@ -19,8 +25,11 @@ struct Users: View {
             
             ZStack {
                 VStack{
+                    //  selection: $selection
                     List(userList, id: \.id) { user in
-                        UserRow(user: user)
+                        UserRow(user: user, removeUserFromList: removeUserFromList)
+                   }.refreshable {
+                       loadUsers()
                    }
                 }
             }.hidden(loading)
@@ -34,6 +43,8 @@ struct Users: View {
                 }, label: {
                     Image(systemName: "person.badge.plus")
                 })
+                
+                //EditButton()
             }
         }
     }
@@ -91,6 +102,7 @@ struct LoaderView: View {
 
 struct UserRow: View {
     var user: User;
+    var removeUserFromList: (_ id: Int) -> Void;
     
     var body: some View {
         NavigationLink(destination: UserDetails(user: user)) {
@@ -108,7 +120,7 @@ struct UserRow: View {
             }
         }.swipeActions {
             Button {
-                print("Deleting user")
+                removeUserFromList(user.id)
             } label: {
                 Image(systemName: "trash")
                     .foregroundColor(.white)
