@@ -24,27 +24,36 @@ struct Users: View {
                    }
                 }
             }.hidden(loading)
-        }.onAppear(perform: loadUsers).navigationTitle("User List")
+        }
+        .onAppear(perform: loadUsers)
+        .navigationTitle("User List")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    print("Adding new User")
+                }, label: {
+                    Image(systemName: "person.badge.plus")
+                })
+            }
+        }
     }
     
     
     func loadUsers () {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else {
-            print("Invalid URL")
-            return
+            fatalError("Invalid URL")
         }
             let request = URLRequest(url: url)
             
             URLSession.shared.dataTask(with: request){ data, response, error in
                 if let error = error {
-                        print("Error getting data", error)
+                    fatalError("Error getting data \(error)")
                 }
                 
                 guard let response = response as? HTTPURLResponse else { return }
                 
                 if response.statusCode != 200 {
-                    print("Error getting data: \(response.statusCode)")
-                    return
+                    fatalError("Error getting data: \(response.statusCode)")
                 }
                 
                 if let data = data {
@@ -56,7 +65,7 @@ struct Users: View {
                         }
                         return
                     } catch let error {
-                        print("Error decoding \(error)")
+                        fatalError("Error decoding \(error)")
                     }
                 }
             }.resume()
@@ -84,17 +93,26 @@ struct UserRow: View {
     var user: User;
     
     var body: some View {
-        HStack{
-            AsyncImage(
-                url: URL(string: user.avatar)) { image in
-                    image.resizable()
-                } placeholder: {
-                    Color.gray
-                }
-                .frame(width: 45, height: 45)
-                .clipShape(RoundedRectangle(cornerRadius: 25))
-            
-            Text(user.name)
+        NavigationLink(destination: UserDetails(user: user)) {
+            HStack{
+                AsyncImage(
+                    url: URL(string: user.avatar)) { image in
+                        image.resizable()
+                    } placeholder: {
+                        Color.gray
+                    }
+                    .frame(width: 45, height: 45)
+                    .clipShape(RoundedRectangle(cornerRadius: 25))
+                
+                Text(user.name)
+            }
+        }.swipeActions {
+            Button {
+                print("Deleting user")
+            } label: {
+                Image(systemName: "trash")
+                    .foregroundColor(.white)
+            }.tint(.red)
         }
     }
 }
